@@ -1,0 +1,373 @@
+/* ResetGlobal */
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-color: #2e2e2e;
+}
+
+p,h1,h2,h3,h4,a,label,span {
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+.app-header {
+    background-color: #1CABE2;
+}
+
+.app-header ul {
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.app-header ul li {
+    display: flex;
+    align-items: center;
+}
+
+/*Toggle THEME*/
+.toggle-light-theme-btn {
+    background-color: #fff;
+    width: 90px;
+    padding: 5px 8px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* App Container */
+.app-container {
+    max-width: 1280px;
+    margin: 20px auto 0;;
+}
+
+@media only screen and (max-width: 1320px) {
+    .app-container {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px) { 
+    .app-container {
+        max-width: 95%;
+    }
+}
+
+.box-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 1320px) {
+    .box-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*Search*/
+.search-form-box {
+    grid-column: 1 / span 2;
+    width: 100%;
+    display: flex;
+}
+
+@media only screen and (max-width: 1320px) { 
+    .search-form-box {
+        grid-column: 1 / span 1;
+    }
+}
+
+.search-form-box input[type="text"]{
+    width: 100%;
+    border: 2px solid #fff;
+    font-size: 28px;
+}
+
+/* To-Do box */
+.todo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+}
+
+.add-item-field-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media only screen and (max-width: 700px) { 
+    .add-item-field-box {
+        flex-direction: column;
+    }
+}
+
+.input-label-group {
+    display: block;
+    width: 100%;
+}
+
+.add-item-field-box input[type="text"] {
+    width: 100%;
+    border: 2px solid #2e2e2e;
+    font-size: 18px;
+    box-sizing:border-box
+}
+
+.btn-add {
+    margin-top: auto;
+    height: fit-content;
+    display: block;
+    padding: 12px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #d6d6d6;
+    color: #000;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.btn-add:hover {
+    background-color: #adadad;
+}
+
+/*Item list*/
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.051);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 35px;
+    position: relative;
+    font-size: 0;
+}
+
+.item-list:empty::after {
+    content: 'No tasks';
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*Drag item*/
+.drag-item {
+    background-color: #1CABE2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: 0.4s;
+    box-shadow: 0px 3px 15px rgb(0 0 0 / 10%);
+}
+
+.drag-item:hover {
+    background-color: #1390c2;
+}
+
+/*Todo item text*/
+.drag-item span {
+    line-height: 1.6;
+}
+
+/*Filtered item*/
+.filtered-item {
+    display: none!important;
+}
+
+/*Done box*/
+.done-box {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    height: fit-content;
+}
+
+/*Done item*/
+.done-items .drag-item {
+    background-color: #09cf93;
+}
+
+.done-items .drag-item:hover {
+    background-color: #0da97a;
+}
+
+/*Delete item*/
+.delete-item {
+    height: fit-content;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-item:hover {
+    color: #af0000;
+}
+
+/*Done item*/
+.done-item-btn {
+    background-color: #fff;
+    color: #1390c2;
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.todos-items .done-item-btn::after {
+    content: 'Done';
+}
+
+.done-items .done-item-btn::after {
+    content: 'Return';
+}
+
+.done-item-btn:hover {
+    background-color: #2e2e2e;
+    color: #fff;
+}
+
+/*Done/delete btn box wrapper*/
+.item-btn-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* To-Do/Done box */
+.todo-box,
+.done-box {
+    background-color: #525252;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 3px 15px rgb(0 0 0 / 10%);
+}
+
+/*Box labels*/
+.box-wrapper label {
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.add-item-field-box label {
+    margin-bottom: 20px;
+}
+
+/*Global input*/
+input[type="text"] {
+    padding: 10px;
+    color: #1CABE2;
+    line-height: 1;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    border: 2px solid #d6d6d6;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #fff;
+}
+
+input[type="text"]:focus-visible {
+    border: 2px solid #1CABE2;
+}
+
+input[type="text"]:focus-visible::placeholder {
+    color: #1CABE2;
+}
+
+/*Footer*/
+
+footer {
+    margin: 10em auto 2em;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+
+/*Light THEME*/
+
+.light-theme {
+    background-color: #ebebeb;
+}
+
+.light-theme .toggle-light-theme-btn {
+    background-color: #2e2e2e;
+    color: #fff;
+}
+
+.light-theme .todo-box,
+.light-theme .done-box {
+    background-color: #ffffff;
+}
+
+.light-theme .item-list {
+    background-color: #ebebeb;
+}
+
+/*Input fields*/
+.light-theme input[type="text"] {
+    background-color: #ebebeb;
+    border-color: #000;
+}
+
+.light-theme input[type="text"]::placeholder {
+    color: #000;
+}
+
+.light-theme .box-wrapper label {
+    color: #000;
+}
+
+.light-theme input[type="text"]:focus-visible {
+    border-color: #1CABE2;
+}
+
+.light-theme input[type="text"]:focus-visible::placeholder {
+    color: #1CABE2;
+}
+/*---*/
+
+.light-theme footer {
+    color: #000;
+}
+
+.light-theme .item-list:empty::after {
+    COLOR: #000;
+}
+
